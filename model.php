@@ -65,9 +65,9 @@
 
             </style>
             <div class="display text">
-                <h3> ความกว้าง <?php echo $width ?></h3>
-                <h3> ความยาว <?php echo $length ?></h3>
-                <h3> ความสูง <?php echo $height ?></h3>
+                <h3> ความกว้าง <?php echo $width ?> หน่วย</h3>
+                <h3> ความยาว <?php echo $length ?> หน่วย</h3>
+                <h3> ความสูง <?php echo $height ?> หน่วย</h3>
             </div>
         </center>
 
