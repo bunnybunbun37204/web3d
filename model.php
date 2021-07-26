@@ -23,6 +23,14 @@
             background-size: cover;
 
         }
+
+        #container {
+            width: 600px;
+            height: 400px;
+            border: 1px solid black;
+            margin: 10px auto;
+            padding: 0px;
+        }
     </style>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -54,13 +62,7 @@
             <br>
             <div id="container"></div>
             <style>
-                #container {
-                    width: 600px;
-                    height: 400px;
-                    border: 1px solid black;
-                    margin: 10px auto;
-                    padding: 0px;
-                }
+
             </style>
             <div class="display text">
                 <h3> ความกว้าง <?php echo $width ?></h3>
@@ -73,6 +75,9 @@
 
 
     <script type="text/javascript">
+        //* by using three.js
+        //TODO U can change params for learning this code
+        //NODE JS
         var length = parseFloat("<?php echo $length; ?>");
         var width = parseFloat("<?php echo $width; ?>");
         var height = parseFloat("<?php echo $height; ?>");
@@ -85,6 +90,7 @@
         var lastTime = 0;
 
         var cube = null;
+        var cylivarndrical = null;
 
         // this function is executed on each animation frame
         function animate() {
@@ -93,6 +99,7 @@
             var timeDiff = time - lastTime;
             var angleChange = angularSpeed * timeDiff * 2 * Math.PI / 1000;
             cube.rotation.y += angleChange;
+            cylindrical.rotation += angleChange;
             lastTime = time;
 
             // render
@@ -122,12 +129,16 @@
         cube = new THREE.Mesh(new THREE.CubeGeometry(1, 1, 1), new THREE.MeshLambertMaterial({
             color: '#cccccc'
         }));
+
         cube.overdraw = true;
         cube.rotation.x = Math.PI * 0.1;
         cube.rotation.y = Math.PI * 0.3;
-        cube.scale.x = width*15;
-        cube.scale.y = height*15;
-        cube.scale.z = length*15;
+
+        //ปรับอัตราส่วนการแสดงผล
+        cube.scale.x = width * 15;
+        cube.scale.y = height * 15;
+        cube.scale.z = length * 15;
+
         scene.add(cube);
 
         // add subtle ambient lighting

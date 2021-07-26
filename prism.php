@@ -50,8 +50,6 @@
       <input type="text" class="from-control" name="name1">
       <br>
       <input type="submit" value="คำนวณ" class="btn btn-primary">
-
-
     </form>
   </center>
 
